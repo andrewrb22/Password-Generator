@@ -1,9 +1,11 @@
-// Assignment Code
+// variable confirmation
+
 var enter;
 var confirmNumber;
 var confirmCharacter;
 var confirmUppercase;
 var confirmLowercase;
+// variables arrays
 
 character = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 
@@ -14,7 +16,7 @@ alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "
 space = [];
 
 var choices;
-
+// function to fix lowecase letters to uppercase
 var toUpper = function (x) {
   return x.toUpperCase();
 };
@@ -29,11 +31,13 @@ get.addEventListener("click", function () {
 });
 
 function generatePassword() {
-
+// Prompt for number of characters  
   enter = parseInt(prompt("How many characters would you like your password? Choose between 8 and 128"));
-
+// condition about the characters
   if (enter < 8 || enter > 128) {
     enter = parseInt(prompt("You must choose between 8 and 128"));
+
+    //prompt confirmation 
   } else {
     confirmNumber = confirm("Will this contain numbers?");
     confirmCharacter = confirm("Will this contain special characters?");
@@ -41,6 +45,8 @@ function generatePassword() {
     confirmLowercase = confirm("Will this contain Lowercase letters?");
 
   };
+
+  // alert if nothing is selected
   if (!confirmCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
     choices = alert("You must choose a criteria!");
 
@@ -100,7 +106,7 @@ function generatePassword() {
 
   var password = [];
 
-
+// loop for ramdon selection of choices
   for (var i = 0; i < enter; i++) {
     var pickChoices = choices[Math.floor(Math.random() * choices.length)];
     password.push(pickChoices);
